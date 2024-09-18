@@ -1,0 +1,55 @@
+{
+  "name": "Upwork Cat",
+  "version": "1.0",
+  "author": "YuriCP",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "tabs",
+    "unlimitedStorage",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "icons": {
+     "128": "images/icon-128.png",
+     "16": "images/icon-16.png",
+     "48": "images/icon-48.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "upwork.png"
+  },
+  "options_page": "options.html",
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Z",
+        "mac": "Command+Shift+Z"
+      }
+    },
+    "start_profile": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Q",
+        "mac": "Command+Shift+Q"
+      },
+      "description": "Display option page"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-script.js"
+      ]
+    }
+  ]
+}
